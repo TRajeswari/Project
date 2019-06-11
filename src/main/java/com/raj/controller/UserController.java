@@ -15,8 +15,7 @@ import com.raj.model.User;
 @Controller
 public class UserController 
 {
-	@Autowired
-	TestSessionFactory testsessionfactory;
+	
 	@Autowired
 	UserDaoImpl userdao;
 	public UserController()
@@ -35,7 +34,7 @@ public class UserController
 	@RequestMapping(value="/addUser",method=RequestMethod.POST)
     public String userFormData(@ModelAttribute ("User") User  user)
     {
-    	testsessionfactory.test();
+    	
     	System.out.println(user.getEmail());
         System.out.println(user.getPassword());
         System.out.println(user.getUserName());
@@ -47,4 +46,30 @@ public class UserController
         userdao.saveUser(user);    
         return "Home";
     }
+	@RequestMapping(value="/login",method=RequestMethod.GET)
+	public ModelAndView goToLoginForm()
+	{
+	    ModelAndView model=new ModelAndView("login");
+	    model.addObject("Login",new User());
+	   return model;//
+	}
+	@RequestMapping(value="/login",method=RequestMethod.POST)
+	public ModelAndView retriveUserData(@ModelAttribute("Login") User user)
+	{
+	    boolean result=userdao.checkLogin(user);
+	    if(result==true)
+	    {
+	    
+	        ModelAndView model=new ModelAndView("login");
+	        return model;
+	    
+	    }
+	    else
+	    {
+	        ModelAndView model=new ModelAndView("login");
+	        model.addObject("Login","loginfailed");
+	        return model;
+	    }
+	}
+	
 }

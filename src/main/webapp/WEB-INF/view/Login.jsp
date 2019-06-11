@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<sform:form action="addUser"  method="post" modelAttribute="User" >
+<sform:form action="login"  method="post" modelAttribute="User" >
 email<sform:input  path="email" />
 <br>
 password<sform:input  path="password" />
