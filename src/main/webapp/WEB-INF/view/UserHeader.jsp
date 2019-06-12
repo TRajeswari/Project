@@ -10,15 +10,19 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-
-
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
  <!-- Links -->
  <ul class="navbar-nav">
    <li class="nav-item">
    <a class="nav-link" href="home">HOME</a>
+   
+   
+   <li class="nav-item">
+   <a class="nav-link" href="about">About Us</a>
+     
+   <li class="nav-item">
+   <a class="nav-link" href="contact">Contact Us</a> 
    
    <li class="nav-item">
    <a class="nav-link" href="register">Register</a>
@@ -28,27 +32,8 @@
    
    
      
-   <!-- Dropdown -->
-   <li class="nav-item dropdown">
-     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-     ABOUT US
-     </a>
-     
-     <div class="dropdown-menu">
-     
-       <a class="dropdown-item" href="about">Details</a>
-     
-   <!-- Dropdown -->
-   <li class="nav-item dropdown">
-     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-     CONTACT Us
-     </a>
-     
-     <div class="dropdown-menu">
-     
-       <a class="dropdown-item" href="contact">Information</a> 
-     
-   </li>
+  
+   
    <li class="nav-item dropdown">
      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
     Products
@@ -60,14 +45,12 @@
        
        <a class="dropdown-item" href="showdetails">Desktops</a>
       
-        <li class="nav-item dropdown">
-     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-    Cart
-     </a>
+        
+     <li class="nav-item">
+   <a class="nav-link" href="showcart">Cart</a>
    
-     
-     <div class="dropdown-menu">
-     <a class="dropdown-item" href="showcart">showCart</a>
+   <li class="nav-item">
+   <a class="nav-link" href="login">Logout</a>
        
      </div>
    </li>

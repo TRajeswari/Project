@@ -12,11 +12,7 @@
 
    <security:http auto-config="true" use-expressions="true">
 
-
-
-
-
-       <security:intercept-url pattern="/savecartdata**"
+ <security:intercept-url pattern="/SaveCartData**"
            access="hasRole('ROLE_USER')" />
 
 
@@ -39,8 +35,8 @@ authentication-failure-url="/loginerror"
        <security:authentication-provider>
            <security:jdbc-user-service
                data-source-ref="dataSource"
-               users-by-username-query="select email,password,'true' as enabled from UserTable where email=?"
-               authorities-by-username-query="select email, role from user  where email =?" />
+               users-by-username-query="select email,password,'true' as enabled from User where email=?"
+               authorities-by-username-query="select email, role from User  where email =?" />
        </security:authentication-provider>
    </security:authentication-manager>
 

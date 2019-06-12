@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.BufferOverflowException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -161,16 +160,7 @@ public class Productcontroller
 	     modelAndView.addObject("ViewData", pro);  
 	    return modelAndView;	    
 	 }
-	 @RequestMapping("/addtocart")
-	 public ModelAndView goToCart(@RequestParam("proid") int cartId)
-		{
-		 Cart cart= new Cart();
-		 
-	    ModelAndView modelAndView=new ModelAndView("ViewDetails");	   	
-		modelAndView.addObject("ViewData",cart);
-		System.out.println(cart);
-        return modelAndView;
-		 }
+	 
 	 @RequestMapping("/SaveCartData")
 	 public String saveCartData(HttpServletRequest request)
 	 {
@@ -179,15 +169,17 @@ public class Productcontroller
 		 Product product=proD.getProduct(productId);
 		 int productQuantity = Integer.parseInt( request.getParameter("quantity")) ;
 		 System.out.println("quantity"   +productQuantity);
-		 Cart cart=proD.saveCartDetails(product,productQuantity);
+		 Cart cart=proD.setCartDetails(product,productQuantity);
+		 System.out.println(cart);
 		 proD.saveCart(cart);
 		return "UserHeader";
 	 }
 	 @RequestMapping("/showcart")
-	 public ModelAndView showcart()
+	 public ModelAndView showart()
 	 {
 		 ModelAndView modelAndView=new ModelAndView("Cart");
-		 List list=proD.RetriveDataFromProduct();
+		 List list=proD.RetriveCartData();
+		 System.out.println(list);
 	     modelAndView.addObject("CartData", list);
 	    return modelAndView;
 	 }

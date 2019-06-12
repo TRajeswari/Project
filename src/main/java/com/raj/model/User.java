@@ -1,27 +1,35 @@
 package com.raj.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class User
 {
-String user;
 
+@Id
 String email;
+@Column
 String password;
+@Column
 String userName;
+@Column
 String mobileNumber;
+@Column
 String address;
+@Column
 String role;
+@Column
 boolean enabled;
-public String getUser() {
-	return user;
+
+public void setEmail(String email)
+{
+	this.email= email;
 }
-public void setUser(String user) {
-	this.user = user;
-}
-public String getEmail() {
+public String getEmail()
+{
 	return email;
-}
-public void setEmail(String email) {
-	this.email = email;
 }
 public String getPassword() {
 	return password;

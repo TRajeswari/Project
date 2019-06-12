@@ -1,6 +1,6 @@
 package com.raj.model;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -9,19 +9,12 @@ public class Cart
 {
 @Id	
 int cartId;
-@Column
+
 int productId;
-@Column
 String productName;
-
-
-@Column
 int productPrice;
-@Column
 String productSupplier;
-@Column
 int productQuantity;
-@Column
 int total;
 
 public void setCartId(int cartId)

@@ -17,7 +17,7 @@ public class UserDaoImpl
 	public void saveUser(User user)
 	{
 		Session session= factory.openSession();
-		user.setRole("USER_NAME");
+		user.setRole("ROLE_USER");
 		user.setEnabled(true);
 		session.save(user);
 		Transaction transaction=session.beginTransaction();
@@ -25,7 +25,7 @@ public class UserDaoImpl
 	}
 	public boolean checkLogin(User user) {
         Session sess=factory.openSession();
-         Query query=sess.createQuery("from UserTable where email=:em and password=:pw");
+         Query query=sess.createQuery("from User where email=:em and password=:pw");
          query.setParameter("em",user.getEmail());
          query.setParameter("pw",user.getMobileNumber());
         Object object=query.uniqueResult();

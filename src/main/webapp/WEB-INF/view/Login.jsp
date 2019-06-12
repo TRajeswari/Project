@@ -8,11 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<sform:form action="login"  method="post" modelAttribute="User" >
+<sform:form action="loginsucess"  method="post" modelAttribute="Login" >
 email<sform:input  path="email" />
 <br>
 password<sform:input  path="password" />
 <br>
+<input type="submit" value="login"/>
 </sform:form>
 
 </body>

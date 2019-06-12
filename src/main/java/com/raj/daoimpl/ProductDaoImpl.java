@@ -11,6 +11,8 @@ import com.raj.model.Cart;
 import com.raj.model.Product;
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 @Component
 public class ProductDaoImpl 
 
@@ -66,15 +68,17 @@ public class ProductDaoImpl
 	      sess.close();
 	          return pro;
 	}
-	public Cart saveCartDetails(Product product, int quantity)
+	public Cart setCartDetails(Product product, int quantity)
 	{
+		
 		Cart cart =new Cart();
 		cart.setCartId((int)(Math.random()*10000));
+		
 		cart.setProductId(product.getProductId());
 		cart.setProductName(product.getProductName());
 		cart.setProductPrice(product.getProductPrice());
 		cart.setProductSupplier(product.getProductSupplier());
-		cart.setProductQuantity(1);
+		cart.setProductQuantity(quantity);
 		cart.setTotal((product.getProductPrice())*(cart.getProductQuantity()));
 		return cart;
 	}
@@ -86,11 +90,11 @@ public class ProductDaoImpl
 		transaction.commit();
 		s.close();
 	}
-	public List<Cart> RetriveDataCart()
+	public List<Cart> RetriveCartData()
 	{
 		Session s= factory.openSession();
 		Query query = s.createQuery("from Cart");
-		List list=query.list();
+		List<Cart> list=query.list();
 		s.close();
 		return list;
 		
